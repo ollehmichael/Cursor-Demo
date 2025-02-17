@@ -1,0 +1,67 @@
+---
+description: The Business Context of the Project - This is the high-level overview of the business requirements of the project.
+globs: 
+---
+# Context Documentation
+
+## Project Background
+
+- This is a simple counter application built using Vite.
+- The project serves as a demonstration for using Cursor to generate code efficiently with proper context.
+- The counter will be a frontend-only application with basic increment and decrement functionalities.
+- The goal is to showcase AI-assisted development by providing context-aware code generation.
+
+## Target Audience
+
+- Developers who want to see how AI tools like Cursor can assist in generating frontend code.
+- Individuals looking for a simple and fast way to build a web-based counter using Vite.
+- The project is not meant for production use but as an educational and exploratory tool.
+
+## Use Cases / Features
+
+- **Basic Counter Operations:**
+  - Increment (+1)
+  - Decrement (-1)
+  - Reset to zero
+
+- **User Interface:**
+  - A display area to show the current count.
+  - Buttons to increment and decrement the count.
+  - A "Reset" button to reset the counter to zero.
+
+- **Keyboard Support:**
+  - Users should be able to use their keyboard to increment and decrement the counter.
+
+- **Responsive Design:**
+  - The counter should work well on desktop and mobile screens.
+
+- **Performance Considerations:**
+  - Ensure the app remains lightweight and fast.
+  - Minimal dependencies, leveraging Vite’s fast build system.
+
+- **Extensibility (Optional Enhancements):**
+  - Implement additional features like setting a custom increment step.
+  - Add support for dark mode.
+  - Local storage support to persist the counter value.
+
+## Technical Considerations
+
+- **Technology Stack:**
+  - Vite (for fast development and build process)
+  - React (for UI components, if needed)
+  - Vanilla JavaScript or TypeScript for core logic
+  - CSS for styling (or TailwindCSS for utility-first styling)
+
+- **Deployment:**
+  - No deployment is currently in plan.
+  - Should support fast loading and efficient rendering.
+
+- **AI-Assisted Development Focus:**
+  - Context will be provided to AI (Cursor) to generate structured code.
+  - Ensuring AI-generated code adheres to best practices.
+  - Demonstrating how AI can accelerate frontend development while maintaining quality and maintainability.
+
+## Summary
+
+This project serves as a practical example of how AI tools can assist in frontend development. By setting clear expectations and providing the right context, we ensure that AI-generated code aligns with our project needs while keeping the development process efficient and structured.
+

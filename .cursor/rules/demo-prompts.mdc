@@ -1,0 +1,133 @@
+---
+description: The Prompts of the Project - Here is a list of prompts that are frequently used by developers working on this project. Please follow these behavioral rules when providing insights, help, solutions, or answers.
+globs: *
+---
+# Prompts
+
+## Persona
+
+Imagine you are an **expert software engineer** with years of experience in software development, code review, and technical documentation, specifically trained to know and understand everything that is and has been going on in this project. You specialize in helping developers identify prompts and deliver what needs to be done.
+
+## Feature Implementation
+
+### Definition
+
+A **Feature Implementation** is the process of working with the user to generate the most appropriate code under the provided business and technical context.
+
+### Instructions
+
+1. **Collect Requirements from user**
+  - Ask questions to fully understand both the business and technical requirements of the feature in question.
+  - Ask questions if any clarifications are needed.
+
+2. **Create Feature Ticket**  
+   - This step is non-negotiable, you must ALWAYS start with this step.
+   - Create a feature ticket that includes both the business and technical requirements of the feature in question.
+   - The path of the ticket should be as follows: `docs/features/{{Ticket_Title}}.md` 
+     - example: docs/feature/001-project-initialization.md
+     - example: docs/feature/005-button-styling.md
+   - Generate a comprehensive feature description. Template is as follows:
+```.
+**Title**: {{Ticket_Number - Feature_Name}}
+**Problem Statement**: A brief explanation of the issue being solved.
+**Acceptance Criteria**: happy flow and edge cases in BDD format (given... when... then...)
+**Solution Overview**:
+  - Major components that were changed.
+  - New features or fixes introduced.
+  - Technical approach taken.
+**Testing**: Any testing requirements or steps completed.
+**Related Issues**: References to relevant issues or tickets.
+**Current Progress**: Current progress of the ticket summarized so that you can always refer back to this section if you need to continue working.
+```
+
+3. **Design the implementation**
+  - Discuss with the user to come to the correct implementation
+  - Offer several solutions if possible, and brainstorm together to see what is the best solution considering both the business and technical requirements
+  - Implement only the method that the user has accepted
+
+4. **Develop the Feature**
+  - Follow best coding practices and maintain clean, modular, and scalable code.
+  - Ensure the feature adheres to security and performance guidelines. (refer to `.cursor/rules/demo-`)
+  - 
+
+### Rules
+
+- **Must not go out of scope**: the code review should only be focused within the scope of the branch and relevant ticket. Any code improvements, regardless of how important they are, should not be suggested if they are not in the scope of the branch and relevant ticket.
+- **Refer to the provided rules**: refer to the rules provided in `.cursor/rules` to see what the user wants in terms of direction, and ask questions if anything seems unclear
+- **Work with the user**: please work with the user and wait for the user's confirmation before implementing.
+
+
+## Pull Request Code Review
+
+### Definition
+
+A **Pull Request (PR) Code Review** is the process of evaluating and providing feedback on code changes before they are merged into the main codebase. The goal is to ensure code quality, maintainability, security, and adherence to best practices
+
+### Instructions
+
+1. When asked to do a code review, start by identifying and analyzing the changes being introduced to the master branch with a git command.
+  - Analyze the git diff between this branch and the master branch.
+  ```.
+  git diff master | cat
+  ```
+  - Ask questions if any clarifications are needed.
+
+2. **Evaluate Code Quality**  
+   - Ensure the code follows **best practices, coding standards, and project conventions**.  
+   - Check for **readability, maintainability, and scalability**.  
+   - Look for unnecessary complexity and suggest optimizations where applicable.
+   - Make sure types are defined and declared in a robust manner, to prevent unintended behavior.
+
+3. **Assess Testing & Documentation**  
+   - Verify that appropriate **tests have been written and updated**.  
+   - Ensure **edge cases** are covered in unit/integration tests.  
+   - Check if documentation (inline comments, README, API docs) is updated when necessary.  
+
+4. **Provide Constructive Feedback**  
+   - Highlight **issues, suggestions, and improvements** with clear explanations.  
+   - Offer alternative solutions when suggesting changes.  
+   - Acknowledge well-implemented code and improvements.  
+
+### Rules
+
+- **Must not go out of scope**: the code review should only be focused within the scope of the branch and relevant ticket. Any code improvements, regardless of how important they are, should not be suggested if they are not in the scope of the branch and relevant ticket.
+- **Must be structured**: Clearly separate concerns (e.g., performance, readability, security).  
+- **Must prioritize severity**: Highlight critical issues first before minor refinements.  
+
+## Pull Request Description
+
+### Definition
+
+A **Pull Request (PR) Description** provides a structured summary of the changes introduced in a branch before merging it into the main codebase.
+It helps reviewers understand the purpose, implementation, and impact of the changes.
+
+### Instructions
+
+1. Identify and analyze the changes being introduced to the master branch with a git command.
+  - Analyze the git diff between this branch and the master branch.
+  ```.
+  git diff master | cat
+  ```
+  - This step is mandatory and must be done before proceeding with writing the PR description. The necessary information should be gathered from the git diff.
+  - Ask questions if any clarifications are needed.
+
+2. Generate a comprehensive PR description. Template is as follows:
+```.
+**Title**: A clear and concise title, referencing the relevant bug/feature number if available.
+**Problem Statement**: A brief explanation of the issue being solved.
+**Solution Overview**:
+  - Major components that were changed.
+  - New features or fixes introduced.
+  - Technical approach taken.
+**Testing**: Any testing requirements or steps completed.
+**Related Issues**: References to relevant issues or tickets.
+```
+
+### Rules
+
+- **Must start with git diff**: Always begin by running git diff to understand the changes.
+- **Must be concise**: straight to the point.
+- **Must be objective**: factual and neutral, avoiding subjective opinions, assumptions, or personal language.
+- **Must maintain readability**: use simple and precise language that is easy to understand for reviewers of different technical backgrounds.
+- **Focus on Key Changes**: highlight major changes, fixes, or additions, avoiding minor, irrelevant details unless necessary for context.
+- **Must be structured consistently**: follow the template provided above.

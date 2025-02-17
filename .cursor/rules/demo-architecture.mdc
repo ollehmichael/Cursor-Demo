@@ -1,0 +1,76 @@
+---
+description: The Archiecture of the Project - this is the high-level architecture of the project that you must follow.
+globs: 
+---
+# Architecture Documentation
+
+## Overview
+
+This document outlines the architecture of the Counter application built using Vite. It describes the structure, key components, and interactions within the system to ensure maintainability, scalability, and performance.
+
+## Technology Stack
+
+- **Frontend Framework:** React (or Vanilla JavaScript)
+- **Build Tool:** Vite
+- **Styling:** CSS or TailwindCSS
+- **State Management:** React useState (if using React)
+- **Testing:** Playwright for end-to-end testing
+- **Deployment:** Vercel, Netlify, or GitHub Pages
+
+## Project Structure
+
+```
+/counter-app
+│── public/                # Static assets
+│── src/                   # Application source code
+│   │── components/        # Reusable UI components
+│   │── hooks/            # Custom hooks (if needed)
+│   │── styles/           # Styling (CSS or TailwindCSS)
+│   │── App.jsx           # Main application component
+│   │── main.jsx          # Entry point
+│── tests/                # Playwright test scripts
+│── index.html            # Main HTML file
+│── package.json          # Project dependencies
+│── vite.config.js        # Vite configuration
+│── playwright.config.js  # Playwright configuration
+```
+
+## Component Breakdown
+
+### 1. **Counter Component**
+- Displays the current count.
+- Provides buttons to increment, decrement, and reset the count.
+
+### 2. **Button Component** (Optional)
+- Reusable button component with customizable styles and behavior.
+
+## State Management
+- Uses React's `useState` hook to manage the count.
+- Optionally, local storage can be used to persist the counter state.
+
+## Event Handling
+- Button clicks trigger state updates.
+- Keyboard shortcuts (e.g., Arrow Up/Down) can be added for accessibility.
+
+## Testing Strategy
+- **Playwright Tests:**
+  - Ensure UI components render correctly.
+  - Validate increment, decrement, and reset functionality.
+  - Test keyboard accessibility features.
+  - Verify state persistence (if implemented with local storage).
+
+## Performance Considerations
+- The application is lightweight, leveraging Vite for fast builds and hot module replacement (HMR).
+- Minimal re-renders by optimizing state updates.
+
+## Deployment Strategy
+- There is no deployment planned for this application yet.
+
+## Future Enhancements
+- Implement dark mode.
+- Add a feature to customize the increment/decrement step.
+- Introduce unit tests for components.
+
+## Summary
+This document provides a structured overview of the Counter app's architecture, ensuring clarity in development, maintenance, and future scalability.
+

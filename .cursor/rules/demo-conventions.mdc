@@ -1,0 +1,88 @@
+---
+description: The Development Context of the Project - these are the development principles you must follow. This document covers the fundamental development principles for building high-quality, maintainable React TypeScript applications.
+globs: *
+---
+# Context Documentation
+
+## Development Principles
+
+### 1. **SOLID Principles**
+
+The SOLID principles are a set of five design principles aimed at making software more understandable, flexible, and maintainable:
+
+- **S**: **Single Responsibility Principle (SRP)** – Each class or module should have one responsibility and should only have one reason to change. In the context of React, this means ensuring that components are small and focused on a single task (e.g., a button component should only handle rendering a button, not manage its state).
+  
+- **O**: **Open/Closed Principle (OCP)** – Software entities (e.g., classes, functions, components) should be open for extension but closed for modification. This can be achieved by using composition and higher-order components in React, allowing functionality to be added without modifying existing code.
+
+- **L**: **Liskov Substitution Principle (LSP)** – Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program. In React, this means ensuring that components can accept children or additional props without breaking their expected behavior.
+
+- **I**: **Interface Segregation Principle (ISP)** – Clients should not be forced to depend on interfaces they do not use. In React, this means creating smaller, more specific interfaces or prop types for components, avoiding large monolithic ones.
+
+- **D**: **Dependency Inversion Principle (DIP)** – High-level modules should not depend on low-level modules; both should depend on abstractions. In React, this can be implemented by using hooks or context for managing state, and by ensuring that business logic is decoupled from UI logic.
+
+### 2. **Clean Code Principles**
+
+- **Meaningful Names** – Choose clear, descriptive names for variables, functions, and components. For example, use `UserProfile` instead of just `Profile`.
+  
+- **Keep Functions Small** – Functions should do one thing and do it well. Keep functions small, concise, and focused. A function should not exceed a few lines of code.
+
+- **Avoid Magic Numbers** – Use constants or enums instead of hardcoded numbers to improve readability.
+
+- **Commenting and Documentation** – Comments should explain why a piece of code is necessary, not what it does. The code itself should be clear enough to convey its purpose.
+
+- **Avoid Duplicate Code** – Reuse code through functions, components, or hooks to avoid repetition and increase maintainability.
+
+### 3. **React Best Practices**
+
+- **Functional Components with Hooks** – Prefer functional components over class components, as they are simpler, easier to test, and more readable. Utilize hooks like `useState`, `useEffect`, and `useReducer` to manage state and side effects.
+
+- **Component Reusability** – Create reusable components. Use props to pass data and logic into components, and allow components to be customized with different styles or content.
+
+- **State Management** – Manage local component state using `useState` and avoid excessive use of global state unless necessary. Consider using a state management library like Redux or Context API for complex state management.
+
+- **Effect Cleanup** – Always clean up side effects in `useEffect` to avoid memory leaks and unnecessary updates.
+
+- **Prop Drilling and Context API** – Avoid excessive prop drilling by using React's Context API for sharing global state across components.
+
+- **Error Boundaries** – Use error boundaries to catch JavaScript errors in the component tree, log those errors, and display a fallback UI to the user.
+
+### 4. **TypeScript Best Practices**
+
+- **Strict Type Checking** – Enable strict type-checking options in your `tsconfig.json` to ensure type safety and prevent errors during development.
+
+- **Type Inference** – TypeScript can infer types, but it is important to explicitly type your function parameters, return types, and component props to make your code more predictable and maintainable.
+
+- **Interfaces vs. Types** – Use `interface` for defining object shapes and `type` for other type constructs like unions and intersections. Interfaces can be extended, while types are more flexible.
+
+- **Avoid `any` Type** – Never use `any` as much as possible. Instead, prefer `unknown` or specific types to enforce type safety and reduce runtime errors.
+
+- **Use Generics** – Use generics for functions, components, and hooks that work with multiple types. This enhances reusability and type safety.
+
+### 5. **Testing Best Practices**
+
+- **Test-Driven Development (TDD)** – Consider writing tests before you implement functionality. Write unit tests for components, functions, and hooks, and use integration tests to ensure that components interact correctly.
+
+- **Unit Tests** – Use testing libraries like `Jest` and `React Testing Library` to write unit tests for individual components, hooks, and functions.
+
+- **Mocking and Spying** – Mock external dependencies (like API calls) to isolate units of code during testing. Use spies to check if functions were called.
+
+- **Test Coverage** – Aim for a high level of test coverage to ensure the reliability of your codebase.
+
+### 6. **Performance Considerations**
+
+- **Lazy Loading** – Use React's `Suspense` and `React.lazy` to load components only when needed, reducing initial load time.
+
+- **Memoization** – Use `React.memo` to memoize functional components and prevent unnecessary re-renders. Use `useMemo` and `useCallback` to memoize expensive computations and callbacks.
+
+- **Optimizing Re-renders** – Be mindful of unnecessary re-renders, especially in large apps. Use `shouldComponentUpdate` or `React.memo` to control when a component should re-render.
+
+- **Code Splitting** – Use dynamic imports and webpack code-splitting to optimize the delivery of JavaScript bundles.
+
+### 7. **Version Control and Collaboration**
+
+- **Commit Messages** – Follow conventional commit practices (e.g., `feat`, `fix`, `chore`, etc.) to make version history easier to understand and navigate.
+
+- **Branching Strategy** – Follow a clear branching strategy such as GitFlow, where features are developed in isolated branches and merged into a main branch after review.
+
+
+

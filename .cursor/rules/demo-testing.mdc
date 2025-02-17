@@ -1,0 +1,103 @@
+---
+description: The Testing Strategy of the Project - this is how we want to implement test cases in this project.
+globs: *
+---
+# Testing Documentation
+
+## Overview
+This document provides comprehensive guidelines for writing and executing tests in a React Vite application using Playwright. It ensures consistent, reliable, and efficient test coverage for the application.
+
+## Testing Stack
+- **Test Runner:** Playwright
+- **Assertion Library:** Playwright's built-in expect API
+- **Test Framework:** Playwright Test
+- **Additional Tools:** ESLint for linting test files
+
+## Types of Tests
+1. **Unit Tests**
+   - Ensure individual components function as expected.
+   - Use React Testing Library for component-level testing (if needed).
+   
+2. **Integration Tests**
+   - Validate interactions between multiple components.
+   - Ensure state updates, form submissions, and API calls work correctly.
+   
+3. **End-to-End (E2E) Tests**
+   - Simulate user interactions in a real browser environment.
+   - Ensure the app functions correctly from start to finish.
+
+## Project Structure for Tests
+```
+src/tests
+│── e2e/                  # End-to-end tests
+│   │── counter.spec.ts    # Example test file
+│── utils/                # Utility functions for testing
+│── fixtures/             # Test data and configurations
+│── playwright.config.ts  # Playwright configuration file
+```
+
+## Writing Playwright Tests
+
+### Test File Structure
+Each test should be well-structured, self-contained, and follow these best practices:
+
+```ts
+import { test, expect } from '@playwright/test';
+
+test.describe('Counter App', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('http://localhost:5173'); // Adjust URL as needed
+  });
+
+  test('should display the initial count', async ({ page }) => {
+    const counter = await page.locator('[data-testid="counter"]');
+    await expect(counter).toHaveText('0');
+  });
+
+  test('should increment the counter', async ({ page }) => {
+    await page.click('[data-testid="increment-button"]');
+    const counter = await page.locator('[data-testid="counter"]');
+    await expect(counter).toHaveText('1');
+  });
+
+  test('should decrement the counter', async ({ page }) => {
+    await page.click('[data-testid="decrement-button"]');
+    const counter = await page.locator('[data-testid="counter"]');
+    await expect(counter).toHaveText('-1');
+  });
+});
+```
+
+## Playwright Configuration
+Ensure `playwright.config.ts` is properly set up:
+```ts
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  testDir: './tests',
+  use: {
+    headless: true,
+    viewport: { width: 1280, height: 720 },
+    baseURL: 'http://localhost:5173',
+  },
+});
+```
+
+## Running Tests
+To execute Playwright tests, use the following commands:
+- Run all tests: `npx playwright test`
+- Run a specific test file: `npx playwright test tests/e2e/counter.spec.ts`
+- Run in headed mode (visible browser): `npx playwright test --headed`
+- Run with debug mode: `npx playwright test --debug`
+
+## Best Practices
+- Use **data-testid** attributes for reliable element selection.
+- Avoid using selectors that are prone to UI changes (e.g., class names).
+- Reset application state before each test (`test.beforeEach` hook).
+- Use `await expect()` for assertions to ensure proper synchronization.
+- Structure tests clearly with `test.describe()` for better readability.
+- Parameterize tests when applicable to avoid repetition.
+
+## Summary
+Following these guidelines ensures a robust testing strategy for a React Vite application using Playwright. This document serves as a reference for structuring, writing, and executing tests efficiently to maintain high software quality.
+
