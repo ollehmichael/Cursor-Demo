@@ -1,26 +1,22 @@
-# Counter App Demo
+# Counter App
 
-A simple, modern counter application built with Vite to demonstrate AI-assisted development using Cursor. This project serves as an educational tool to showcase efficient code generation while maintaining best practices and proper architecture.
+A modern counter application built with Vite, React, and TypeScript, following best practices and SOLID principles.
 
-## Project Overview
+## Features
 
-This counter application provides basic counting functionality with a clean, responsive interface. It's designed to be lightweight, performant, and easily extensible.
+- Increment, decrement, and reset counter functionality
+- TypeScript for type safety
+- Modern React practices with hooks
+- Fast development with Vite
+- Clean and maintainable code structure
 
-### Key Features
+## Tech Stack
 
-- Basic counter operations (increment, decrement, reset)
-- Keyboard shortcuts support
-- Responsive design for both desktop and mobile
-- Fast development and build process using Vite
-- Lightweight and performant implementation
-
-## Technology Stack
-
-- **Frontend Framework:** React (or Vanilla JavaScript)
-- **Build Tool:** Vite
-- **Styling:** CSS or TailwindCSS
-- **State Management:** React useState
-- **Testing:** Playwright for end-to-end testing
+- React 18
+- TypeScript
+- Vite
+- CSS/TailwindCSS (planned)
+- Playwright (for testing)
 
 ## Project Structure
 
@@ -29,15 +25,15 @@ This counter application provides basic counting functionality with a clean, res
 │── public/                # Static assets
 │── src/                   # Application source code
 │   │── components/        # Reusable UI components
-│   │── hooks/            # Custom hooks (if needed)
-│   │── styles/           # Styling (CSS or TailwindCSS)
-│   │── App.jsx           # Main application component
-│   │── main.jsx          # Entry point
-│── tests/                # Playwright test scripts
+│   │── hooks/            # Custom hooks
+│   │── styles/           # Styling
+│   │── App.tsx           # Main application component
+│   │── main.tsx          # Entry point
+│── tests/                # Playwright test scripts (planned)
 │── index.html            # Main HTML file
 │── package.json          # Project dependencies
-│── vite.config.js        # Vite configuration
-│── playwright.config.js  # Playwright configuration
+│── vite.config.ts        # Vite configuration
+│── tsconfig.json         # TypeScript configuration
 ```
 
 ## Getting Started
@@ -45,7 +41,7 @@ This counter application provides basic counting functionality with a clean, res
 ### Prerequisites
 
 - Node.js (v14 or higher)
-- npm or yarn package manager
+- npm (v6 or higher)
 
 ### Installation
 
@@ -53,56 +49,44 @@ This counter application provides basic counting functionality with a clean, res
 
    ```bash
    git clone [repository-url]
-   cd counter-app
    ```
 
 2. Install dependencies:
 
    ```bash
    npm install
-   # or
-   yarn install
    ```
 
 3. Start the development server:
 
    ```bash
    npm run dev
-   # or
-   yarn dev
    ```
 
 4. Open your browser and navigate to `http://localhost:5173`
 
-## Development
-
-### Available Scripts
+## Available Scripts
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
-- `npm run test` - Run Playwright tests
+- `npm run test` - Run tests (to be implemented)
 
-### Testing
+## Development Guidelines
 
-The application uses Playwright for end-to-end testing. Tests cover:
-
-- UI component rendering
-- Counter functionality
-- Keyboard accessibility
-- Responsive design
-
-## Future Enhancements
-
-- Dark mode support
-- Custom increment/decrement step
-- Local storage persistence
-- Additional unit tests
+- Follow TypeScript best practices
+- Use functional components with hooks
+- Implement SOLID principles
+- Write clean, maintainable code
+- Add appropriate comments and documentation
+- Include tests for new features
 
 ## Contributing
 
-This project is meant for demonstration purposes, but contributions are welcome. Please feel free to submit issues and pull requests.
+1. Create a feature branch
+2. Make your changes
+3. Submit a pull request
 
 ## License
 
-This project is open source and available under the MIT License.
+This project is licensed under the MIT License.

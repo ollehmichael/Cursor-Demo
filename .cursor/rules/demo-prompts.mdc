@@ -45,10 +45,15 @@ A **Feature Implementation** is the process of working with the user to generate
   - Offer several solutions if possible, and brainstorm together to see what is the best solution considering both the business and technical requirements
   - Implement only the method that the user has accepted
 
-4. **Develop the Feature**
+5. **Create a new feature branch**
+  - Use the git command to checkout the main branch, and make sure you've pulled the latest updates
+  - Create a new feature branch with an appropriate name
+    - example: feat/project-initialization
+    - example: feat/version-upgrade
+
+5. **Develop the Feature**
   - Follow best coding practices and maintain clean, modular, and scalable code.
   - Ensure the feature adheres to security and performance guidelines. (refer to `.cursor/rules/demo-`)
-  - 
 
 ### Rules
 
