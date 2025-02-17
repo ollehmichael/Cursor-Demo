@@ -5,7 +5,7 @@ import {
   getCounterValue,
 } from "../utils/test-utils";
 
-test.skip("Counter App", () => {
+test("Counter App", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/");
   });
